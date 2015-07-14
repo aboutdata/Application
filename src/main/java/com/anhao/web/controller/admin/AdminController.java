@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.anhao.web.controller;
+package com.anhao.web.controller.admin;
 
 import com.anhao.commons.page.Order;
 import com.anhao.commons.page.Page;
 import com.anhao.commons.page.Pageable;
 import com.anhao.commons.page.TableData;
+import com.anhao.domain.Admin;
 import com.anhao.domain.Role;
+import com.anhao.service.AdminService;
 import com.anhao.service.RoleService;
 import java.util.List;
 import javax.annotation.Resource;
@@ -19,21 +21,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
+ * 时间: 2015-7-14
  *
- * @author Administrator
+ * @author aboutdata
  */
 @Controller
-@RequestMapping("/admin/role")
-public class RoleController {
+@RequestMapping("/admin/admin")
+public class AdminController {
 
     @Resource
-    private RoleService roleService;
+    private AdminService adminService;
 
     @RequestMapping("/list.do")
     public String displayList(Model model) {
-        List<Role> lists = roleService.findAll();
+        List<Admin> lists = adminService.findAll();
         model.addAttribute("lists", lists);
-        return "/admin/role/list";
+        return "/admin/admin/list";
     }
 
     /**
@@ -49,18 +52,18 @@ public class RoleController {
      */
     @ResponseBody
     @RequestMapping("/getDatalist.do")
-    public TableData<Role> getData(int iDisplayLength,
+    public TableData<Admin> getData(int iDisplayLength,
             int iDisplayStart,
             String sColName,
             String sSortDir_0,
             String sSearch,
             int sEcho) {
- 
+
         Pageable pageable = new Pageable(iDisplayStart, iDisplayLength);
         pageable.setOrderProperty("modifyDate");
         pageable.setOrderDirection(Order.Direction.desc);
-        
-        Page<Role> pages = roleService.findPage(pageable);
-        return new TableData<Role>(pages, sEcho);
+
+        Page<Admin> pages = adminService.findPage(pageable,true);
+        return new TableData<Admin>(pages, sEcho);
     }
 }

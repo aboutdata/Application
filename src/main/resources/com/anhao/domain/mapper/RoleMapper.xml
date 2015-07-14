@@ -24,10 +24,25 @@
     </insert>
     
     <!-- ************** READ ************** -->
-    <select id="findAll" resultMap="roleMap ">
+    <select id="findAll" resultMap="roleMap">
         SELECT 
         id,createDate,modifyDate,description,isSystem,name,value
         FROM 
         v_role 	            	
     </select>
+    <!-- ************** //START 分页 READ ************** -->
+    <select id="findByPage" resultMap="roleMap">
+        SELECT 
+        id,createDate,modifyDate,description,isSystem,name,value
+        FROM 
+        v_role 
+        <if test="pageable.orderProperty != null">  
+          ORDER BY #{pageable.orderProperty} ${pageable.orderDirection}  
+        </if>  
+        limit #{pageable.pageNumber},#{pageable.pageSize}  	
+    </select>
+    <select id="countByPage" resultType="long">
+        select count(*) c from v_role;           	
+    </select>
+    <!-- ************** //END 分页 READ ************** -->
 </mapper>

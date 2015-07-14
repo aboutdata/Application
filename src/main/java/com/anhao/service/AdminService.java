@@ -7,24 +7,22 @@ package com.anhao.service;
 
 import com.anhao.commons.page.Page;
 import com.anhao.commons.page.Pageable;
-import com.anhao.domain.Role;
+import com.anhao.domain.Admin;
 import java.util.List;
 
 /**
- * 功能主要测试mybatis service不实现
  *
  * @author Administrator
  */
-public interface RoleService {
+public interface AdminService {
 
-    public int countAll();
+    public void create(Admin admin);
 
-    public Role findById(String id);
+    public List<Admin> findAll();
 
-    public void create(Role role);
+    public Admin findById(String id);
 
-    public List<Role> findAll();
+    public Page<Admin> findPage(Pageable pageable);
 
-    public Page<Role> findPage(Pageable pageable);
-
+    public Page<Admin> findPage(Pageable pageable, boolean dim);
 }

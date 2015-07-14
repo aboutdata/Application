@@ -5,25 +5,22 @@
  */
 package com.anhao.domain.dao;
 
-import com.anhao.domain.Role;
+import com.anhao.domain.Admin;
 import java.util.List;
 import java.util.Map;
 
 /**
+ * 管理员DAO
  *
  * @author Administrator
  */
-public interface RoleDao extends BaseDao<Role, String> {
+public interface AdminDao extends BaseDao<Admin, String> {
 
-    public int countAll();
+    public void create(Admin admin);
 
-    public Role findById(String id);
+    public List<Admin> findAll();
 
-    public void create(Role role);
-
-    public List<Role> findAll();
-
-    public List<Role> findByPage(Map map);
+    public List<Admin> findByPage(Map map);
 
     public Long countByPage();
 }

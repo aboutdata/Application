@@ -40,4 +40,11 @@ public class Role extends ABaseEntity {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return "Role{" + "id=" + this.getId() + "," + "name=" + name + ", value=" + value + ", modifyDate=" + this.getModifyDate() + ", description=" + description + '}';
+    }
+    
+    
 }
