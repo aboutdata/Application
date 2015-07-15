@@ -202,5 +202,20 @@
             <version>${slf4j.version}</version>
         </dependency>
     </dependencies>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <port>9090</port>
+                    <path>/Application</path>
+                    <uriEncoding>UTF-8</uriEncoding>
+                    <finalName>Application</finalName>
+                    <server>tomcat7</server>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
