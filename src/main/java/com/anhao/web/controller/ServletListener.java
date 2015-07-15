@@ -5,8 +5,8 @@
  */
 package com.anhao.web.controller;
 
-import com.anhao.domain.Admin;
-import com.anhao.service.AdminService;
+import com.anhao.ApplicationBean;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.annotation.WebListener;
 import org.slf4j.Logger;
@@ -27,14 +27,13 @@ public class ServletListener extends ContextLoaderListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
+        ServletContext sc = sce.getServletContext();
         long start = System.currentTimeMillis();
         logger.info("contextInitialized start ...");
         //获取spring上下文
         ApplicationContext applicationContext = getCurrentWebApplicationContext();
-        AdminService adminService = (AdminService) applicationContext.getBean("adminServiceImpl");
-        for (Admin admin : adminService.findAll()) {
-            logger.info("admin {}", admin);
-        }
+        ApplicationBean appBean = (ApplicationBean) applicationContext.getBean("applicationBean");
+        sc.setAttribute("appBean", appBean);
         logger.info("contextInitialized {}", System.currentTimeMillis() - start);
     }
 
