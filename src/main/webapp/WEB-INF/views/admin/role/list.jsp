@@ -1004,7 +1004,7 @@ window.jQuery || document.write("<script src='${pageContext.request.contextPath}
                     "bPaginate": true, //翻页功能
                     "searching": false,
                     "dom": 'rtlip',
-                    "sAjaxSource": "${pageContext.request.contextPath}/admin/role/getDatalist.do",
+                    "sAjaxSource": "${pageContext.request.contextPath}/admin/role/getDatalist",
                     "aoColumns": [
                         {"mData": "id"},
                         {"mData": "name"},

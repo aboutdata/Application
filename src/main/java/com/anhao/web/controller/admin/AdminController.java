@@ -32,7 +32,7 @@ public class AdminController {
     @Resource
     private AdminService adminService;
 
-    @RequestMapping("/list.do")
+    @RequestMapping("/list")
     public String displayList(Model model) {
         List<Admin> lists = adminService.findAll();
         model.addAttribute("lists", lists);
@@ -51,7 +51,7 @@ public class AdminController {
      * @return
      */
     @ResponseBody
-    @RequestMapping("/getDatalist.do")
+    @RequestMapping("/getDatalist")
     public TableData<Admin> getData(int iDisplayLength,
             int iDisplayStart,
             String sColName,

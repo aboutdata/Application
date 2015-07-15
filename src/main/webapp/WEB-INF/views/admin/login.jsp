@@ -38,15 +38,15 @@
                 <form>
                     <div class="form-group">
                         <label for="exampleInputEmail1">管理员账号</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                        <input type="text" class="form-control" id="username" placeholder="管理员账号">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">管理员密码</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <input type="password" class="form-control" id="password" placeholder="管理员密码">
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox"> 记住密码
+                            <input type="checkbox" name="remeberme"> 记住密码
                         </label>
                     </div>
                     <button type="submit" class="btn btn-info btn-block">登录</button>

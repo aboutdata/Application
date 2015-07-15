@@ -37,7 +37,7 @@ public class DataTablesController {
     @Resource
     private RoleService roleService;
     
-    @RequestMapping("/datatables/list.do")
+    @RequestMapping("/datatables/list")
     public String displayList(Model model) {
         List<Role> lists = roleService.findAll();
         model.addAttribute("lists", lists);
@@ -45,7 +45,7 @@ public class DataTablesController {
     }
     
     @ResponseBody
-    @RequestMapping(value = "/data.do")
+    @RequestMapping(value = "/data")
 //    public TableData<Role> getData(@RequestBody DataTablesRequest dataTablesRequest) {
     public TableData<Role> getData(int iDisplayLength,
             int iDisplayStart,

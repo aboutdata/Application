@@ -29,7 +29,7 @@ public class RoleController {
     @Resource
     private RoleService roleService;
 
-    @RequestMapping("/list.do")
+    @RequestMapping("/list")
     public String displayList(Model model) {
         List<Role> lists = roleService.findAll();
         model.addAttribute("lists", lists);
@@ -48,7 +48,7 @@ public class RoleController {
      * @return
      */
     @ResponseBody
-    @RequestMapping("/getDatalist.do")
+    @RequestMapping("/getDatalist")
     public TableData<Role> getData(int iDisplayLength,
             int iDisplayStart,
             String sColName,

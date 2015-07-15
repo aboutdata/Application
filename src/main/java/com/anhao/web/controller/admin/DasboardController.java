@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.anhao.web.controller;
+package com.anhao.web.controller.admin;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,19 +12,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * 时间: 2015-7-14
+ * 时间: 2015-7-15
  *
  * @author aboutdata
  */
 @Controller
 @RequestMapping("/admin")
-public class LoginController {
+public class DasboardController {
 
     Logger logger = LoggerFactory.getLogger(getClass());
 
-    @RequestMapping("/login")
-    public String displayLogin(Model model) {
-        logger.debug("displayLogin");
-        return "/admin/login";
+    @RequestMapping("/dashboard")
+    public String displayDasboard(Model model) {
+        logger.debug("displayDasboard...");
+        return "/admin/dashboard";
     }
 }
