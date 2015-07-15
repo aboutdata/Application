@@ -10,6 +10,7 @@ import com.anhao.service.AdminService;
 import javax.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 /**
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Component;
  * @author aboutdata
  */
 @Component
+@Scope("singleton") 
 public class ApplicationBean {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
