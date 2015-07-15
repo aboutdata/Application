@@ -603,7 +603,7 @@
                     <li class="active open">
                         <a href="#" class="dropdown-toggle">
                             <i class="menu-icon fa fa-list"></i>
-                            <span class="menu-text"> Tables </span>
+                            <span class="menu-text"> 用户管理 </span>
 
                             <b class="arrow fa fa-angle-down"></b>
                         </a>
@@ -614,16 +614,7 @@
                             <li class="">
                                 <a href="tables.html">
                                     <i class="menu-icon fa fa-caret-right"></i>
-                                    Simple &amp; Dynamic
-                                </a>
-
-                                <b class="arrow"></b>
-                            </li>
-
-                            <li>
-                                <a href="jqgrid.html">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    jqGrid plugin
+                                    个人用户
                                 </a>
 
                                 <b class="arrow"></b>
@@ -631,7 +622,7 @@
                             <li class="active">
                                 <a href="${pageContext.request.contextPath}/admin/role/list.do">
                                     <i class="menu-icon fa fa-caret-right"></i>
-                                    角色列表
+                                    企业用户
                                 </a>
                                 <b class="arrow"></b>
                             </li>
@@ -880,13 +871,13 @@
                     <ul class="breadcrumb">
                         <li>
                             <i class="ace-icon fa fa-home home-icon"></i>
-                            <a href="#">Home</a>
+                            <a href="#">控制面板</a>
                         </li>
 
                         <li>
-                            <a href="#">Tables</a>
+                            <a href="#">用户管理</a>
                         </li>
-                        <li class="active">jqGrid plugin</li>
+                        <li class="active">个人用户</li>
                     </ul><!-- /.breadcrumb -->
 
                     <!-- #section:basics/content.searchbox -->
@@ -909,10 +900,10 @@
                     <!-- /section:settings.box -->
                     <div class="page-header">
                         <h1>
-                            jqGrid
+                            用户管理
                             <small>
                                 <i class="ace-icon fa fa-angle-double-right"></i>
-                                Dynamic tables and grids using jqGrid plugin
+                                企业用户列表测试datatables
                             </small>
                         </h1>
                     </div><!-- /.page-header -->
