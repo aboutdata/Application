@@ -21,4 +21,5 @@
     </context:component-scan>
     
     <import resource="spring-mybatis.xml"></import>
+    <import resource="spring-shiro.xml"></import>
 </beans>

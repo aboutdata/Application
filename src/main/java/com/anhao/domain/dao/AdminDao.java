@@ -23,4 +23,10 @@ public interface AdminDao extends BaseDao<Admin, String> {
     public List<Admin> findByPage(Map map);
 
     public Long countByPage();
+
+    public boolean usernameExists(String username);
+
+    public Admin findByUsername(String username);
+
+    public Admin update(Admin entity);
 }

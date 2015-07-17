@@ -4,7 +4,6 @@ import com.anhao.commons.page.Page;
 import com.anhao.commons.page.Pageable;
 import com.anhao.commons.security.dimmer.AdminDimmer;
 import com.anhao.domain.Admin;
-import com.anhao.domain.Role;
 import com.anhao.domain.dao.AdminDao;
 import com.anhao.domain.dao.RoleDao;
 import com.anhao.service.AdminService;
@@ -109,6 +108,21 @@ public class AdminServiceImpl implements AdminService {
         }
         // 先计算出总条数和分页出的数据病返回
         return new Page<Admin>(list, total, pageable);
+    }
+
+    @Override
+    public boolean usernameExists(String username) {
+        return adminDao.findByUsername(username) != null;
+    }
+
+    @Override
+    public Admin findByUsername(String username) {
+        return adminDao.findByUsername(username);
+    }
+
+    @Override
+    public Admin update(Admin entity) {
+        return adminDao.update(entity);
     }
 
 }

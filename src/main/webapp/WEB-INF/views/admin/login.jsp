@@ -35,14 +35,14 @@
         <div class="container">
             <section class="loginBox row-fluid">
                 <br/>
-                <form>
+                <form action="${pageContext.request.contextPath}/admin/login" method="post">
                     <div class="form-group">
                         <label for="exampleInputEmail1">管理员账号</label>
-                        <input type="text" class="form-control" id="username" placeholder="管理员账号">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="管理员账号">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">管理员密码</label>
-                        <input type="password" class="form-control" id="password" placeholder="管理员密码">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="管理员密码">
                     </div>
                     <div class="checkbox">
                         <label>

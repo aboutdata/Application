@@ -10,15 +10,15 @@ public class ABaseEntity implements Serializable {
 
     private static final long serialVersionUID = 6880611748567024709L;
 
-    private String id;// ID
+    private long id;// ID
     private Date createDate;// 创建日期
     private Date modifyDate;// 修改日期
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -36,33 +36,6 @@ public class ABaseEntity implements Serializable {
 
     public void setModifyDate(Date modifyDate) {
         this.modifyDate = modifyDate;
-    }
-
-    @Override
-    public int hashCode() {
-        return id == null ? System.identityHashCode(this) : id.hashCode();
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass().getPackage() != obj.getClass().getPackage()) {
-            return false;
-        }
-        final ABaseEntity other = (ABaseEntity) obj;
-        if (id == null) {
-            if (other.getId() != null) {
-                return false;
-            }
-        } else if (!id.equals(other.getId())) {
-            return false;
-        }
-        return true;
     }
 
 }

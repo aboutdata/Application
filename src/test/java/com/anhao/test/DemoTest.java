@@ -38,7 +38,7 @@ public class DemoTest extends AbstractJUnit4SpringContextTests {
     private RoleDao roleDao;
 
     /**
-     *默认提供测试方法
+     * 默认提供测试方法
      */
     public void empty() {
 
@@ -66,7 +66,7 @@ public class DemoTest extends AbstractJUnit4SpringContextTests {
 
         Role role = new Role();
 
-        role.setId("11111111111111121");
+        role.setId(33l);
         role.setCreateDate(new Date());
         role.setModifyDate(new Date());
         role.setDescription("我要在测试一次");

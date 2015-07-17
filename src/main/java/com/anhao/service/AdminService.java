@@ -16,6 +16,22 @@ import java.util.List;
  */
 public interface AdminService {
 
+    /**
+     * 判断用户名是否存在
+     *
+     * @param username 用户名(忽略大小写)
+     * @return 用户名是否存在
+     */
+    public boolean usernameExists(String username);
+
+    /**
+     * 根据用户名查找管理员
+     *
+     * @param username 用户名(忽略大小写)
+     * @return 管理员，若不存在则返回null
+     */
+    public Admin findByUsername(String username);
+
     public void create(Admin admin);
 
     public List<Admin> findAll();
@@ -25,4 +41,13 @@ public interface AdminService {
     public Page<Admin> findPage(Pageable pageable);
 
     public Page<Admin> findPage(Pageable pageable, boolean dim);
+
+    /**
+     * 更新实体对象
+     *
+     * @param entity 实体对象
+     * @return 实体对象
+     */
+    public Admin update(Admin entity);
+
 }
