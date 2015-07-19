@@ -15,16 +15,15 @@
         <script type="text/javascript" src="${pageContext.request.contextPath}/demo/js/jquery-1.7.2.min.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/demo/js/jquery.bigautocomplete.js"></script>
         <script type="text/javascript">
-            $(function() {
+            $(function () {
 
-           
-//
+
 //                $("#tt2").bigAutocomplete({width: 604,data:[{title:"中国好声音",result:{ff:"qq"}}], callback: function(data) {
 //                        alert(data.result.ff);
 //
-//                    }});
-                $("#tt2").bigAutocomplete({width: 604,url: "${pageContext.request.contextPath}/bigAutoComplete/json", callback: function(data) {
-                        alert(data.result.ff);
+//                }});
+                $("#tt2").bigAutocomplete({width: 604, url: "${pageContext.request.contextPath}/bigAutoComplete/json", callback: function (data) {
+//                        alert(data.result.ff);
 
                     }});
 
