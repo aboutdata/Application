@@ -5,6 +5,10 @@
  */
 package com.anhao.web.controller.member;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,14 +31,40 @@ public class BigAutoCompleteController {
 
     @RequestMapping("/json")
     @ResponseBody
-    public String getBigAutoCompleteData(String keyword,Model model) {
-        
+    public Map getBigAutoCompleteData(String keyword, Model model) {
+
         System.out.println("keyword :" + keyword);
+
+        Map result = new HashMap();
+
+        result.put("ff", "qq");
+
+        Map mapContent = new HashMap();
+        mapContent.put("title", "中国好声音");
+        mapContent.put("result", result);
+
+        Map mapContent1 = new HashMap();
+        mapContent1.put("title", "中国移动网上营业厅");
+        mapContent1.put("result", result);
+
+        Map mapContent2 = new HashMap();
+        mapContent2.put("title", "中国好声音 第一期");
+        mapContent2.put("result", result);
+
+        Map json = new HashMap();
+
+        List list = new ArrayList();
+        list.add(mapContent);
+        list.add(mapContent1);
+        list.add(mapContent2);
+
+        json.put("data", list);
+
         String data = "{data:[{title:'中国好声音',result:{ff:'qq'}}]}";
 
 //        {data:[{title:null,result:{}},{title:null,result:{}} ]}
         System.out.println("data :" + data);
-        return data;
+        return json;
     }
 
 }
