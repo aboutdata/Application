@@ -23,6 +23,7 @@
         <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
 
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -266,7 +267,36 @@
             <artifactId>bcprov-jdk15</artifactId>
             <version>140</version>
         </dependency>
+        <dependency>
+            <groupId>com.octo.captcha</groupId>
+            <artifactId>jcaptcha</artifactId>
+            <version>1.0</version>
+            <!--exclusions>
+                    <exclusion>
+                            <groupId>com.jhlabs</groupId>
+                            <artifactId>imaging</artifactId>
+                    </exclusion>
+            </exclusions-->
+        </dependency>
     </dependencies>
+    
+    <repositories>
+        <repository>
+            <id>spring-maven-release</id>
+            <name>Spring Maven Release Repository</name>
+            <url>http://maven.jahia.org/maven2</url>
+        </repository>
+        <repository>
+            <id>spring-maven-milestone</id>
+            <name>Spring Maven Milestone Repository</name>
+            <url>http://maven.jahia.org/maven2</url>
+        </repository>
+        <repository>
+            <id>spring-roo-repository</id>
+            <name>Spring Roo Repository</name>
+            <url>http://maven.jahia.org/maven2/</url>
+        </repository>
+    </repositories>
     <build>
         <plugins>
             <plugin>

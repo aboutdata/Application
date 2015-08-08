@@ -28,7 +28,6 @@ public class AuthenticationRealm extends AuthorizingRealm {
      *
      * @param authcToken
      * @return
-     * @see 经测试:本例中该方法的调用时机为LoginController.login()方法中执行Subject.login()时
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) {

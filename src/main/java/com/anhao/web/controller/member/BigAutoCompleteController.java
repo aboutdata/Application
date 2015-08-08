@@ -35,21 +35,27 @@ public class BigAutoCompleteController {
 
         System.out.println("keyword :" + keyword);
 
-        Map result = new HashMap();
-
-        result.put("ff", "qq");
+        Map result1 = new HashMap();
+        result1.put("id", "1111111");
 
         Map mapContent = new HashMap();
         mapContent.put("title", "中国好声音");
-        mapContent.put("result", result);
+        mapContent.put("result", result1);
+
+        Map result2 = new HashMap();
+        result2.put("id", "q222222q");
 
         Map mapContent1 = new HashMap();
         mapContent1.put("title", "中国移动网上营业厅");
-        mapContent1.put("result", result);
+
+        mapContent1.put("result", result2);
+
+        Map result3 = new HashMap();
+        result3.put("id", "333333333333");
 
         Map mapContent2 = new HashMap();
         mapContent2.put("title", "中国好声音 第一期");
-        mapContent2.put("result", result);
+        mapContent2.put("result", result3);
 
         Map json = new HashMap();
 

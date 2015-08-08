@@ -22,9 +22,13 @@
 //                        alert(data.result.ff);
 //
 //                }});
-                $("#tt2").bigAutocomplete({width: 604, url: "${pageContext.request.contextPath}/bigAutoComplete/json", callback: function (data) {
-//                        alert(data.result.ff);
 
+
+                $("#tt2").bigAutocomplete({width: 604, url: "${pageContext.request.contextPath}/bigAutoComplete/json", callback: function (data) {
+                        // alert(data.result.ff);
+                        // 
+//                        $("#tt2-hidden").val(data.result.id);
+                        $("#tt2").prev().val(data.result.id);
                     }});
 
             })
@@ -40,9 +44,12 @@
             <br/>
             <br/>
             <br/>
+            <br/> 	
+
             <br/>
-            <br/>
-            <input type="text" id="tt2" style="width:600px;height:30px; line-height:30px;font-size:15px; border:2px #CCCCCC solid;" />		
+            <input type="text" id="tt2-hidden" name="host"/>
+            <input type="text" id="tt2" name="host"/>	
+           
         </center>	
     </body>
 </html>
