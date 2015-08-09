@@ -15,10 +15,12 @@
         http://www.springframework.org/schema/tx/spring-tx.xsd 
         http://www.springmodules.org/schema/oscache 
         http://www.springmodules.org/schema/cache/springmodules-oscache.xsd">
-   
+  
+        
     <context:component-scan base-package="com.anhao">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
     </context:component-scan>
+ 
     
     <bean id="imageCaptchaService" class="com.octo.captcha.service.image.DefaultManageableImageCaptchaService">
         <property name="captchaEngine">

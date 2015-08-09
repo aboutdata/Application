@@ -1,7 +1,9 @@
 package com.anhao.web.controller;
 
+import com.anhao.domain.Role;
 import com.anhao.service.CaptchaService;
 import java.awt.image.BufferedImage;
+import java.util.List;
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
@@ -9,7 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -22,7 +27,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/admin/common")
 public class CommonController {
-
+    
+    Logger logger = LoggerFactory.getLogger(getClass());
+    
     @Resource
     private CaptchaService captchaService;
 
@@ -47,7 +54,7 @@ public class CommonController {
         response.setHeader("Cache-Control", "no-store");
         response.setDateHeader("Expires", 0);
         response.setContentType("image/jpeg");
-
+        
         ServletOutputStream servletOutputStream = null;
         try {
             servletOutputStream = response.getOutputStream();
@@ -60,4 +67,5 @@ public class CommonController {
             IOUtils.closeQuietly(servletOutputStream);
         }
     }
+   
 }

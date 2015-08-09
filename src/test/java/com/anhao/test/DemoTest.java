@@ -49,12 +49,10 @@ public class DemoTest extends AbstractJUnit4SpringContextTests {
      * 测试 查询所有管理员
      */
     @Test
-    @Ignore
+//    @Ignore
     public void findAdminsTest() {
-        List<Admin> list = adminService.findAll();
-        for (Admin admin : list) {
-            logger.info("admin {}", admin);
-        }
+      Admin admin =  adminService.findByUsername("admin");
+       logger.info("admin findByUsername {}", admin);
     }
 
     /**

@@ -1,10 +1,17 @@
 package com.anhao.commons.security.shrio;
 
+import com.anhao.domain.Admin;
 import com.anhao.service.AdminService;
+import java.util.Date;
 import javax.annotation.Resource;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.DisabledAccountException;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -31,19 +38,28 @@ public class AuthenticationRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) {
-        logger.info("doGetAuthenticationInfo");
+        UsernamePasswordToken authenticationToken = (UsernamePasswordToken) authcToken;
+        String username = authenticationToken.getUsername();
+        String password = new String(authenticationToken.getPassword());
 
-        UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
-        logger.info("token {}", token.getUsername());
-         logger.info("token {}", token.getPassword());
-        if ("admin".equals(token.getUsername())) {
-            AuthenticationInfo authcInfo = new SimpleAuthenticationInfo("admin", "admin", this.getName());
-            return authcInfo;
-        } else if ("xuanyu".equals(token.getUsername())) {
-            AuthenticationInfo authcInfo = new SimpleAuthenticationInfo("xuanyu", "xuanyu", this.getName());
-            return authcInfo;
+        if (username != null) {
+            Admin admin = adminService.findByUsername(username);
+            if (admin == null) {
+                logger.info("没有该用户");
+                throw new UnknownAccountException();
+            }
+            //密码验证
+            logger.info("not match");
+//            if (!DigestUtils.md5Hex(password).equals(admin.getPassword())) {
+//                logger.info("密码不匹配");
+//                throw new IncorrectCredentialsException();
+//            }
+            admin.setLoginDate(new Date());
+            admin.setLoginFailureCount(0);
+//            adminService.update(admin);
+            return new SimpleAuthenticationInfo(new Principal(admin.getId(), username), password, getName());
         }
-        return null;
+        throw new UnknownAccountException();
     }
 
     /**
@@ -53,8 +69,10 @@ public class AuthenticationRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        String currentUsername = (String) super.getAvailablePrincipal(principals);
+        Principal principal = (Principal) super.getAvailablePrincipal(principals);
         SimpleAuthorizationInfo simpleAuthorInfo = new SimpleAuthorizationInfo();
+
+        String currentUsername = principal.getUsername();
         if (null != currentUsername && "admin".equals(currentUsername)) {
             simpleAuthorInfo.addRole("admin");
             simpleAuthorInfo.addStringPermission("admin:manage");

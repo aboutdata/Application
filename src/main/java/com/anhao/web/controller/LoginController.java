@@ -39,7 +39,7 @@ public class LoginController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String displayLogin(Model model) {
-        logger.info("displayLogin");
+        logger.info("displayLogin ");
         return "/login";
     }
 
@@ -47,7 +47,6 @@ public class LoginController {
     public String login(String username, String password, String captcha, HttpServletRequest request, Model model) {
         boolean captchaValid = captchaService.isValid(request.getSession().getId(), captcha);
         if (!captchaValid) {
-            logger.info("captchaValid");
             model.addAttribute("errorMessage", "验证码错误");
             return "/login";
         }
@@ -56,8 +55,11 @@ public class LoginController {
             SecurityUtils.getSubject().login(token);
             return "redirect:/admin/dashboard";
         } catch (AuthenticationException e) {
+            
             model.addAttribute("errorMessage", e.getMessage());
             return "/login";
         }
     }
+    
+    
 }

@@ -53,4 +53,13 @@
         select count(*) c from  v_admin;           	
     </select>
     <!-- ************** //END 分页 READ ************** -->
+    
+    <select id="findByUsername" resultMap="adminMap ">
+        SELECT 
+        id, username , password , email ,name , department , isEnabled , isLocked , loginFailureCount , lockedDate , loginDate , loginIp , createDate , modifyDate
+        FROM 
+        v_admin
+        WHERE
+        username = #{username}	            	
+    </select>
 </mapper>
