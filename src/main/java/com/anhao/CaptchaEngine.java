@@ -32,7 +32,7 @@ import com.octo.captcha.image.gimpy.GimpyFactory;
 public class CaptchaEngine extends ListImageCaptchaEngine {
 
 	/** 图片宽度 */
-	private static final int IMAGE_WIDTH = 80;
+	private static final int IMAGE_WIDTH = 120;
 
 	/** 图片高度 */
 	private static final int IMAGE_HEIGHT = 28;
@@ -44,10 +44,10 @@ public class CaptchaEngine extends ListImageCaptchaEngine {
 	private static final int MAX_FONT_SIZE = 16;
 
 	/** 最小字符个数 */
-	private static final int MIN_WORD_LENGTH = 4;
+	private static final int MIN_WORD_LENGTH = 6;
 
 	/** 最大字符个数 */
-	private static final int MAX_WORD_LENGTH = 4;
+	private static final int MAX_WORD_LENGTH = 6;
 
 	/** 随机字符 */
 	private static final String CHAR_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZSZHZOZPZXZXZ";

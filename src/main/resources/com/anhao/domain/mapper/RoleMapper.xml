@@ -10,6 +10,9 @@
         <result column="name" property="name"/>
         <result column="value" property="value"/>
     </resultMap>  
+    <sql id="Base_Column_List">
+        d,createDate,modifyDate,description,isSystem,name,value
+    </sql>
     
     <select id="countAll" resultType="int">
         select count(*) c from v_role;
@@ -37,7 +40,7 @@
         FROM 
         v_role 
         <if test="pageable.orderProperty != null">  
-          ORDER BY #{pageable.orderProperty} ${pageable.orderDirection}  
+            ORDER BY #{pageable.orderProperty} ${pageable.orderDirection}  
         </if>  
         limit #{pageable.pageNumber},#{pageable.pageSize}  	
     </select>
@@ -45,4 +48,12 @@
         select count(*) c from v_role;           	
     </select>
     <!-- ************** //END 分页 READ ************** -->
+    <select id="findByAdminId" resultMap="roleMap">
+        select 
+        <include refid="Base_Column_List"></include>
+        from 
+        v_role 
+                  	
+    </select>
+    
 </mapper>

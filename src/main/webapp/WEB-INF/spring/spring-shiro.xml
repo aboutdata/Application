@@ -43,7 +43,6 @@
         <property name="securityManager" ref="securityManager" />
         <property name="loginUrl" value="/login"/> 
         <property name="successUrl" value="/admin/dashboard"/> 
-
         <property name="filterChainDefinitions">
             <value>
                 /admin/common/captcha = anon
@@ -58,27 +57,6 @@
 	
     <bean id="myRealm" class="com.anhao.commons.security.shrio.AuthenticationRealm"></bean>
 	
-
-    <!--    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
-        <property name="realm" ref="iniRealm" />
-    </bean>-->
-	
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
     
-<!--    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
-          depends-on="lifecycleBeanPostProcessor"/>
-    
-    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
-        <property name="securityManager" ref="securityManager"/>
-    </bean>-->
-    <!--    <bean id="iniRealm" class="org.apache.shiro.realm.text.IniRealm">
-        <property name="resourcePath" value="classpath:/shiro.ini"/>
-    </bean>-->
-    <!--     <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
-                   depends-on="lifecycleBeanPostProcessor">
-                <property name="proxyTargetClass" value="true" /> 
-    </bean>
-    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
-            <property name="securityManager" ref="securityManager"/>
-    </bean>-->
 </beans>

@@ -58,20 +58,10 @@ public class DemoTest extends AbstractJUnit4SpringContextTests {
     /**
      * 测试插入一条数据到v_role表
      */
-//    @Test
-    @Ignore
+    @Test
+//    @Ignore
     public void saveRoleTest() {
 
-        Role role = new Role();
-
-        role.setId(33l);
-        role.setCreateDate(new Date());
-        role.setModifyDate(new Date());
-        role.setDescription("我要在测试一次");
-        role.setIsSystem(Boolean.TRUE);
-        role.setName("王坤");
-        role.setValue("ROLE_TEST");
-        logger.info("role save {}", role);
-        roleDao.create(role);
+//      roleDao.
     }
 }

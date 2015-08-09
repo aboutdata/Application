@@ -26,8 +26,6 @@ public class DasboardController {
     Logger logger = LoggerFactory.getLogger(getClass());
 
     @RequestMapping("/dashboard")
-//    @RequiresAuthentication
-    @RequiresPermissions({"amdin:admin"})
     public String displayDasboard(Model model) {
         logger.debug("displayDasboard...");
         return "/admin/dashboard";
