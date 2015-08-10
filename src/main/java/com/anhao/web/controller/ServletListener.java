@@ -20,7 +20,7 @@ import org.springframework.web.context.ContextLoaderListener;
  * @ 集成ContextLoaderListener，而不是import javax.servlet.ServletContextListener;
  * @author aboutdata
  */
-@WebListener
+//@WebListener
 public class ServletListener extends ContextLoaderListener {
 
     Logger logger = LoggerFactory.getLogger(getClass());

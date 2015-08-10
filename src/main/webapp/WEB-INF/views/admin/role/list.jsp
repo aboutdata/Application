@@ -917,21 +917,7 @@
                         </h1>
                     </div><!-- /.page-header -->
 
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <!-- PAGE CONTENT BEGINS -->
-                            <table id="myDatatbles" class="table table-striped table-bordered table-hover dataTables-example dataTable" cellspacing="0" width="100%">
-                                <thead>
-                                    <tr>
-                                        <th>编号</th>
-                                        <th>名称</th>
-                                        <th>描述</th>
-                                        <th>修改时间</th>
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
-                            <!-- PAGE CONTENT ENDS -->
+                        -->
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.page-content -->
