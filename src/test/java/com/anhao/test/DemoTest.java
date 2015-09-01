@@ -5,10 +5,16 @@
  */
 package com.anhao.test;
 
+import com.anhao.commons.bean.SystemConfig;
+import com.anhao.commons.ip.IpProvinceSearchEngine;
+import com.anhao.commons.page.Pageable;
 import com.anhao.domain.Admin;
+import com.anhao.domain.IP;
 import com.anhao.domain.Role;
+import com.anhao.domain.dao.IPDao;
 import com.anhao.domain.dao.RoleDao;
 import com.anhao.service.AdminService;
+import com.anhao.service.ConfigService;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.Resource;
@@ -36,6 +42,11 @@ public class DemoTest extends AbstractJUnit4SpringContextTests {
 
     @Resource
     private RoleDao roleDao;
+    @Resource
+    ConfigService configService;
+
+    @Resource
+    private IPDao iPDao;
 
     /**
      * 默认提供测试方法
@@ -49,10 +60,10 @@ public class DemoTest extends AbstractJUnit4SpringContextTests {
      * 测试 查询所有管理员
      */
     @Test
-//    @Ignore
+    @Ignore
     public void findAdminsTest() {
-      Admin admin =  adminService.findByUsername("admin");
-       logger.info("admin findByUsername {}", admin);
+        Admin admin = adminService.findByUsername("admin");
+        logger.info("admin findByUsername {}", admin);
     }
 
     /**
@@ -61,7 +72,16 @@ public class DemoTest extends AbstractJUnit4SpringContextTests {
     @Test
 //    @Ignore
     public void saveRoleTest() {
-
-//      roleDao.
+      List<IP> ips = iPDao.findAll();
+        logger.info("admin SystemConfig {}", ips.get(2).getStart());
+        for(IP ip :ips){
+         logger.info("admin ip {}", ip);
+            
+        }
+        IpProvinceSearchEngine engine = new IpProvinceSearchEngine();
+        engine.load(ips);
+        System.out.println(engine.getProvince("202.101.15.61"));
+        
+        
     }
 }

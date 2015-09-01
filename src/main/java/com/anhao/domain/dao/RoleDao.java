@@ -5,6 +5,7 @@
  */
 package com.anhao.domain.dao;
 
+import com.anhao.commons.page.Pageable;
 import com.anhao.domain.Role;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +24,7 @@ public interface RoleDao extends BaseDao<Role, String> {
 
     public List<Role> findAll();
 
-    public List<Role> findByPage(Map map);
+    public List<Role> findByPage(Pageable pageable);
 
     public Long countByPage();
 }

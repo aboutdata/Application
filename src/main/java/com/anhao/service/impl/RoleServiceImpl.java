@@ -52,7 +52,7 @@ public class RoleServiceImpl implements RoleService {
         Long total = roleDao.countByPage();
         //增加分页实现
         pageMap.put("pageable", pageable);
-        List<Role> list = roleDao.findByPage(pageMap);
+        List<Role> list = roleDao.findByPage(pageable);
         
         for (Role role : list) {
             logger.debug("role {}", role);

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.anhao.domain.dao.IPDao">
+    <resultMap id="IPMap" type="com.anhao.domain.IP" >
+        <id column="id" property="id"/>
+        <result property="start" column="start_ip"/>
+        <result property="end" column="end_ip"/>
+        <result property="province" column="province_city"/>
+        <result property="area" column="area"/>
+    </resultMap>  
+    <!-- ************** READ ************** -->
+    <select id="findAll" resultMap="IPMap ">
+        SELECT 
+        id,start_ip,end_ip,province_city,area
+        FROM 
+        ip_address 
+        <!--limit 1,20-->	            	
+    </select> 
+</mapper>

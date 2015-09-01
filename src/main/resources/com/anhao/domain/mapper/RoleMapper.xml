@@ -38,14 +38,14 @@
         SELECT 
         id,createDate,modifyDate,description,isSystem,name,value
         FROM 
-        v_role 
-        <if test="pageable.orderProperty != null">  
-            ORDER BY #{pageable.orderProperty} ${pageable.orderDirection}  
+        t_role 
+        <if test="orderProperty != null">  
+            ORDER BY #{orderProperty} ${porderDirection}  
         </if>  
-        limit #{pageable.pageNumber},#{pageable.pageSize}  	
+        limit #{pageNumber},#{pageSize}  	
     </select>
     <select id="countByPage" resultType="long">
-        select count(*) c from v_role;           	
+        select count(*) c from t_role;           	
     </select>
     <!-- ************** //END 分页 READ ************** -->
     <select id="findByAdminId" resultMap="roleMap">
